@@ -25,6 +25,8 @@ module RequestExceptionHandler
     else # rack request
       request.respond_to?(:content_mime_type) ? request.content_mime_type : request.content_type
     end
+    puts "REXML::ParseError Request"
+    puts request_body.read
     { "body" => request_body, "content_type" => content_type, "content_length" => request.content_length }
   end
   
